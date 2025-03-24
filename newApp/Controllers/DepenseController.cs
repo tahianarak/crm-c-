@@ -23,6 +23,13 @@ namespace newApp.Controllers
     {
         try
         {
+            string sessionid=Request.Cookies["JSESSIONID"];
+                bool val=await LoginClientService.IsSessionValid(sessionid,_httpClient);
+                Console.WriteLine(val);
+                if(!val)
+                {
+                    return View("Error");
+                }
             return View("FormulairePourcentage");
         }
         catch (Exception ex)
@@ -38,6 +45,13 @@ namespace newApp.Controllers
     {
         try
         {
+            string sessionid=Request.Cookies["JSESSIONID"];
+                bool val=await LoginClientService.IsSessionValid(sessionid,_httpClient);
+                Console.WriteLine(val);
+                if(!val)
+                {
+                    return View("Error");
+                }
             double parsedPourcentage = double.Parse(pourcentage);
 
             var requestData = new Dictionary<string, string>
@@ -65,6 +79,13 @@ namespace newApp.Controllers
     {
         try
         {
+            string sessionid=Request.Cookies["JSESSIONID"];
+                bool val=await LoginClientService.IsSessionValid(sessionid,_httpClient);
+                Console.WriteLine(val);
+                if(!val)
+                {
+                    return View("Error");
+                }
             int parsedIdDepense = int.Parse(idDepense);
 
             var requestData = new Dictionary<string, string>
@@ -93,6 +114,13 @@ namespace newApp.Controllers
     {
         try
         {
+            string sessionid=Request.Cookies["JSESSIONID"];
+            bool val=await LoginClientService.IsSessionValid(sessionid,_httpClient);
+            Console.WriteLine(val);
+            if(!val)
+            {
+                return View("Error");
+            }
             double parsedMontant = double.Parse(montant);
             int parsedIdDepense = int.Parse(idDepense);
 
@@ -122,6 +150,13 @@ namespace newApp.Controllers
         {
             try
             {
+                string sessionid=Request.Cookies["JSESSIONID"];
+                bool val=await LoginClientService.IsSessionValid(sessionid,_httpClient);
+                Console.WriteLine(val);
+                if(!val)
+                {
+                    return View("Error");
+                }
                 HttpResponseMessage response = await _httpClient.GetAsync(SpringBootApiUrl+"depense/all");
                 string jsonResponse = await response.Content.ReadAsStringAsync();
                 List<Depense> depenses = JsonSerializer.Deserialize<List<Depense>>(jsonResponse, new JsonSerializerOptions

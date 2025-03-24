@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\tahiana\s6\evaluation n1\new-app\newApp
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/tahiana/s6/evaluation n1/new-app/newApp/Views/Depense/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwZW5zZVxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/tahiana/s6/evaluation n1/new-app/newApp/Views/Depense/FormulairePourcentage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwZW5zZVxGb3JtdWxhaXJlUG91cmNlbnRhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

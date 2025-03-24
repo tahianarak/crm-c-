@@ -6,3 +6,39 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+<script>
+        // Récupérer le JSESSIONID à partir des cookies
+        var name = "JSESSIONID=";
+        var cookies = document.cookie.split(";");
+        var jsessionId = null;
+
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.indexOf(name) === 0) {
+                jsessionId = cookie.substring(name.length, cookie.length);
+                break;
+            }
+        }
+
+        if (jsessionId) {
+            // Envoi du JSESSIONID à une API via POST
+            fetch("http://localhost:5001/Login/ RecevoirJSessionId", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ jsessionid: jsessionId }) // Envoi du JSESSIONID en JSON
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Réponse du serveur:", data);
+            })
+            .catch(error => {
+                console.error("Erreur lors de l'envoi du JSESSIONID :", error);
+            });
+        } else {
+            console.warn("JSESSIONID non trouvé dans les cookies.");
+        }
+    </script>
